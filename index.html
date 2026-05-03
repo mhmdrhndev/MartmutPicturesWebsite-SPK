@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martmut Picture | SPK Promosi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+        }
+
+        .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-gold {
+            background: linear-gradient(135deg, #fde68a 0%, #fbbf24 100%);
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/hero-cinematic.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .massive-text {
+            font-size: clamp(4rem, 15vw, 12rem);
+            line-height: 0.85;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        input,
+        select {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+        }
+
+        input:focus {
+            border-color: #fbbf24 !important;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-6">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-xl font-bold font-heading tracking-[0.2em] text-white">MARTMUT PICTURE</span>
+            </div>
+            <div class="hidden md:flex items-center gap-10 text-[11px] font-bold tracking-[0.2em] text-white/80">
+                <a href="#home" class="hover:text-white transition-colors">BERANDA</a>
+                <a href="#about" class="hover:text-white transition-colors">TENTANG</a>
+                <a href="#gallery" class="hover:text-white transition-colors">FOTO</a>
+                <a href="#services" class="hover:text-white transition-colors">HARGA</a>
+                <a href="login.html" class="hover:text-white transition-colors">ADMIN</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-view">
+
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center hero-bg overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 w-full pt-20">
+                <div class="flex flex-col">
+                    <h1 class="massive-text text-white font-heading animate-fade-in">
+                        MARTMUT<br>PICTURE
+                    </h1>
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mt-12 gap-8">
+                        <p class="text-lg text-white/70 max-w-md font-medium leading-relaxed">
+                            Menangkap setiap detail emosi dan warna dalam momen berharga Anda. Profesionalisme yang
+                            dibalut dengan sentuhan artistik.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#gallery"
+                                class="px-8 py-4 rounded-full bg-white text-black font-bold hover:bg-amber-400 hover:text-black transition-all">
+                                JELAJAHI KARYA
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Gallery -->
+        <section id="gallery" class="py-24 bg-black">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Galeri Portofolio</h2>
+                    <p class="text-gray-500">Kumpulan karya terbaik kami dalam berbagai genre fotografi.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Wedding -->
+                    <div class="group relative overflow-hidden rounded-2xl aspect-[4/5]">
+                        <img src="assets/portfolio-1.png" alt="Wedding"
+                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
+                            <span class="text-amber-400 text-sm font-bold uppercase mb-2">Wedding</span>
+                            <h3 class="text-xl font-bold">The Eternal Love</h3>
+                        </div>
+                    </div>
+                    <!-- Product -->
+                    <div class="group relative overflow-hidden rounded-2xl aspect-[4/5]">
+                        <img src="assets/portfolio-2.png" alt="Product"
+                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
+                            <span class="text-amber-400 text-sm font-bold uppercase mb-2">Commercial</span>
+                            <h3 class="text-xl font-bold">Modern Gadgets</h3>
+                        </div>
+                    </div>
+                    <!-- Portrait -->
+                    <div class="group relative overflow-hidden rounded-2xl aspect-[4/5]">
+                        <img src="assets/portfolio-3.png" alt="Portrait"
+                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
+                            <span class="text-amber-400 text-sm font-bold uppercase mb-2">Portrait</span>
+                            <h3 class="text-xl font-bold">Expressionist</h3>
+                        </div>
+                    </div>
+                    <!-- Event -->
+                    <div class="group relative overflow-hidden rounded-2xl aspect-[4/5]">
+                        <img src="assets/portfolio-4.png" alt="Event"
+                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
+                            <span class="text-amber-400 text-sm font-bold uppercase mb-2">Event</span>
+                            <h3 class="text-xl font-bold">Vibrant Night</h3>
+                        </div>
+                    </div>
+                    <!-- Nature -->
+                    <div class="group relative overflow-hidden rounded-2xl aspect-[4/5]">
+                        <img src="assets/portfolio-5.png" alt="Nature"
+                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
+                            <span class="text-amber-400 text-sm font-bold uppercase mb-2">Landscape</span>
+                            <h3 class="text-xl font-bold">Golden Valley</h3>
+                        </div>
+                    </div>
+                    <!-- Food -->
+                    <div class="group relative overflow-hidden rounded-2xl aspect-[4/5]">
+                        <img src="assets/portfolio-6.png" alt="Food"
+                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
+                            <span class="text-amber-400 text-sm font-bold uppercase mb-2">Culinary</span>
+                            <h3 class="text-xl font-bold">Gourmet Delight</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="py-24 glass">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div class="max-w-2xl">
+                        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4 text-amber-400">Layanan Kami</h2>
+                        <p class="text-gray-400">Kami menawarkan berbagai jasa dokumentasi visual yang disesuaikan
+                            dengan kebutuhan Anda.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="glass-card p-8 rounded-2xl">
+                        <div class="w-12 h-12 bg-amber-400/10 rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="heart" class="text-amber-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Wedding</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Abadikan momen sekali seumur hidup dengan gaya
+                            sinematik dan emosional.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl">
+                        <div class="w-12 h-12 bg-amber-400/10 rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="shopping-bag" class="text-amber-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Product</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Tingkatkan nilai jual produk Anda dengan foto
+                            komersial berkualitas tinggi.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl">
+                        <div class="w-12 h-12 bg-amber-400/10 rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="video" class="text-amber-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Cinematography</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Produksi video pendek, iklan, hingga
+                            dokumentasi event profesional.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl">
+                        <div class="w-12 h-12 bg-amber-400/10 rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="users" class="text-amber-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Corporate</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Profil perusahaan, foto tim, dan dokumentasi
+                            kegiatan bisnis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 mt-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-gray-500 text-sm">&copy; 2026 Martmut Picture & SPK Strategy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-[#0a0a0a]', 'py-4', 'shadow-2xl', 'border-b', 'border-white/5');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-[#0a0a0a]', 'py-4', 'shadow-2xl', 'border-b', 'border-white/5');
+                navbar.classList.add('py-6');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Martmut Picture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            background-image: radial-gradient(circle at top right, rgba(251, 191, 36, 0.05), transparent),
+                radial-gradient(circle at bottom left, rgba(251, 191, 36, 0.02), transparent);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gradient-gold {
+            background: linear-gradient(135deg, #fde68a 0%, #fbbf24 100%);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-6">
+
+    <div class="w-full max-w-md">
+        <!-- Logo -->
+        <div class="flex flex-col items-center mb-10">
+            <h1 class="text-xl font-bold font-heading tracking-[0.2em] text-white">MARTMUT PICTURE</h1>
+            <p class="text-gray-500 text-[10px] font-bold tracking-[0.3em] uppercase mt-3 opacity-60">Decision Support System</p>
+        </div>
+
+        <!-- Login Card -->
+        <div class="glass p-8 rounded-3xl">
+            <h2 class="text-xl font-bold mb-6 text-center">Login Administrator</h2>
+
+            <form id="login-form" class="space-y-5">
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Username</label>
+                    <div class="relative">
+                        <i data-lucide="user"
+                            class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500"></i>
+                        <input type="text" id="username"
+                            class="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-amber-400 transition-colors"
+                            placeholder="Masukkan username" required>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Password</label>
+                    <div class="relative">
+                        <i data-lucide="lock"
+                            class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500"></i>
+                        <input type="password" id="password"
+                            class="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-amber-400 transition-colors"
+                            placeholder="••••••••" required>
+                    </div>
+                </div>
+
+                <div id="error-msg" class="hidden text-red-400 text-xs text-center bg-red-400/10 py-2 rounded-lg">
+                    Username atau password salah!
+                </div>
+
+                <button type="submit"
+                    class="w-full py-4 rounded-xl gradient-gold text-black font-bold hover:shadow-lg hover:shadow-amber-400/20 transition-all">
+                    Masuk ke Dashboard
+                </button>
+            </form>
+
+            <a href="index.html"
+                class="block text-center text-gray-500 text-sm mt-8 hover:text-white transition-colors">
+                Kembali ke Beranda
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const loginForm = document.getElementById('login-form');
+        const errorMsg = document.getElementById('error-msg');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            // Simple hardcoded check (Simulasi)
+            if (user === 'martmutpc' && pass === 'martmutpictur3') {
+                localStorage.setItem('adminLoggedIn', 'true');
+                window.location.href = 'admin.html';
+            } else {
+                errorMsg.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>

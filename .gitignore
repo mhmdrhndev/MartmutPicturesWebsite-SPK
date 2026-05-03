@@ -1,0 +1,14 @@
+# Dependency directories
+node_modules/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Gemini/IDE temporary files
+.gemini/
+.antigravity/
+*.log
+
+# Project specific
+assets/*.tmp
