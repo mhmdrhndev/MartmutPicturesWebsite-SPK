@@ -36,6 +36,10 @@ class SPKWeightedProduct {
         this.hasilVektorS = [];
         this.hasilVektorV = [];
         this.ranking = [];
+
+        // Key untuk localStorage
+        this.STORAGE_KEY_ALT = 'spk_alternatif';
+        this.STORAGE_KEY_KRI = 'spk_kriteria';
     }
 
     // ─────────────────────────────────────────────
@@ -63,6 +67,7 @@ class SPKWeightedProduct {
 
         const id = 'A' + (this.alternatif.length + 1);
         this.alternatif.push({ id, nama, nilai: [...nilai] });
+        this.simpanKeStorage();
         return id;
     }
 
@@ -79,6 +84,7 @@ class SPKWeightedProduct {
         this.alternatif.forEach((alt, i) => {
             alt.id = 'A' + (i + 1);
         });
+        this.simpanKeStorage();
     }
 
     /**
@@ -93,6 +99,7 @@ class SPKWeightedProduct {
             if (b <= 0) throw new Error('Bobot harus bernilai positif.');
             this.kriteria[i].bobot = b;
         });
+        this.simpanKeStorage();
     }
 
     /**
@@ -104,13 +111,18 @@ class SPKWeightedProduct {
         this.hasilVektorS = [];
         this.hasilVektorV = [];
         this.ranking = [];
+        this.simpanKeStorage();
     }
 
     /**
      * Memuat contoh data default untuk demonstrasi
      */
     muatContohData() {
-        this.reset();
+        this.alternatif = [];
+        this.hasilNormalisasi = [];
+        this.hasilVektorS = [];
+        this.hasilVektorV = [];
+        this.ranking = [];
         this.tambahAlternatif('Instagram Ads', [4, 5, 4]);
         this.tambahAlternatif('TikTok Organic', [2, 4, 5]);
         this.tambahAlternatif('SEO Website', [3, 3, 3]);
@@ -285,5 +297,54 @@ class SPKWeightedProduct {
             vektorV: this.hasilVektorV,
             ranking: this.ranking
         };
+    }
+
+    // ─────────────────────────────────────────────
+    // LOCAL STORAGE PERSISTENCE
+    // ─────────────────────────────────────────────
+
+    /**
+     * Menyimpan data alternatif & kriteria ke localStorage
+     * Dipanggil otomatis setiap ada perubahan data
+     */
+    simpanKeStorage() {
+        try {
+            localStorage.setItem(this.STORAGE_KEY_ALT, JSON.stringify(this.alternatif));
+            localStorage.setItem(this.STORAGE_KEY_KRI, JSON.stringify(this.kriteria));
+        } catch (e) {
+            console.warn('Gagal menyimpan ke localStorage:', e.message);
+        }
+    }
+
+    /**
+     * Memuat data alternatif & kriteria dari localStorage
+     * Dipanggil saat halaman pertama kali dibuka
+     * @returns {boolean} true jika berhasil memuat data
+     */
+    muatDariStorage() {
+        try {
+            const savedAlt = localStorage.getItem(this.STORAGE_KEY_ALT);
+            const savedKri = localStorage.getItem(this.STORAGE_KEY_KRI);
+
+            if (savedAlt) {
+                this.alternatif = JSON.parse(savedAlt);
+            }
+            if (savedKri) {
+                this.kriteria = JSON.parse(savedKri);
+            }
+
+            return this.alternatif.length > 0;
+        } catch (e) {
+            console.warn('Gagal memuat dari localStorage:', e.message);
+            return false;
+        }
+    }
+
+    /**
+     * Menghapus semua data dari localStorage
+     */
+    hapusStorage() {
+        localStorage.removeItem(this.STORAGE_KEY_ALT);
+        localStorage.removeItem(this.STORAGE_KEY_KRI);
     }
 }

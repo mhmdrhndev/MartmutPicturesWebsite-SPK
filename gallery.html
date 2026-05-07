@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Foto | Martmut Picture</title>
+    <meta name="description" content="Galeri foto dokumentasi event, birthday, sweet seventeen, dan graduation oleh Martmut Picture.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+        }
+
+        .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Disable image dragging & selection */
+        .protected-img {
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-touch-callout: none;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(12px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 0.75rem;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+        }
+    </style>
+</head>
+
+<body class="antialiased" oncontextmenu="return false;">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 py-5 bg-black/80 backdrop-blur-md border-b border-white/5">
+        <div class="w-full px-8 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-xl font-bold font-heading tracking-[0.2em] text-white">MARTMUT PICTURE</span>
+            </a>
+            <div class="hidden md:flex items-center gap-10 text-[11px] font-bold tracking-[0.2em] text-white/80">
+                <a href="index.html#about" class="hover:text-white transition-colors">TENTANG</a>
+                <a href="gallery.html" class="text-amber-400 transition-colors">FOTO</a>
+                <a href="index.html#harga" class="hover:text-white transition-colors">HARGA</a>
+                <a href="index.html#kontak" class="hover:text-white transition-colors">KONTAK</a>
+            </div>
+            <a href="login.html"
+                class="hidden md:block px-6 py-2.5 bg-white text-black text-[11px] font-black tracking-[0.15em] rounded-lg hover:bg-amber-400 transition-all">
+                ADMIN
+            </a>
+        </div>
+    </nav>
+
+    <main class="pt-28 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-black font-heading mb-3">Galeri Foto</h1>
+            <p class="text-gray-500 text-sm max-w-lg mx-auto">Koleksi momen terbaik yang telah kami abadikan bersama klien kami.</p>
+            <div class="w-12 h-[2px] bg-amber-400/40 mx-auto mt-6"></div>
+        </div>
+
+        <!-- Photo Grid -->
+        <div id="gallery-grid" class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+            <!-- Photos will be added here. Currently placeholder message -->
+            <p class="text-gray-600 text-center col-span-full text-sm italic py-20">Foto-foto akan segera ditambahkan. Stay tuned! 📸</p>
+        </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/60 hover:text-white z-10">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <img id="lightbox-img" src="" alt="Foto" class="protected-img">
+    </div>
+
+    <!-- Footer -->
+    <footer class="pt-16 pb-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-2xl">🐱</span>
+                        <h3 class="text-xl font-bold font-heading">Martmut Picture</h3>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-sm mb-6">
+                        Spesialis dokumentasi event, photobooth, dan video sinematik dengan sentuhan seni dan profesionalitas tinggi.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a href="https://instagram.com/martmutpicture" target="_blank" class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5 text-gray-400"></i>
+                        </a>
+                        <a href="https://tiktok.com/@martmutpicture" target="_blank" class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52V6.79a4.84 4.84 0 01-1-.1z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Hubungi Kami</h3>
+                    <div class="space-y-4">
+                        <a href="tel:+6281282914639" class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="phone" class="w-4 h-4 text-amber-400"></i>
+                            <span class="text-sm">+62 812-8291-4639</span>
+                        </a>
+                        <a href="mailto:martmutphotobooth@gmail.com" class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="mail" class="w-4 h-4 text-amber-400"></i>
+                            <span class="text-sm">martmutphotobooth@gmail.com</span>
+                        </a>
+                        <div class="flex items-center gap-3 text-gray-400">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i>
+                            <span class="text-sm">Martmut Picture, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-6 text-center">
+                <p class="text-gray-600 text-xs">&copy; 2026 Martmut Picture. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/6281282914639" target="_blank"
+        class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 hover:bg-green-400 hover:scale-110 transition-all">
+        <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Lightbox functions
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Disable keyboard shortcuts for saving images
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && (e.key === 's' || e.key === 'S' || e.key === 'u' || e.key === 'U')) {
+                e.preventDefault();
+            }
+        });
+
+        // Disable drag on all images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('dragstart', (e) => e.preventDefault());
+        });
+    </script>
+</body>
+
+</html>

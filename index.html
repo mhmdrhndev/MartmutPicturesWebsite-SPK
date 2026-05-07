@@ -67,6 +67,26 @@
             letter-spacing: -0.02em;
         }
 
+        .hero-bottom-editorial {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0 2rem 2rem;
+            pointer-events: none;
+        }
+
+        .massive-branding {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(4rem, 14vw, 11rem);
+            line-height: 0.85;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: white;
+            margin: 0 0 -10px -10px;
+            text-transform: uppercase;
+        }
+
         .tab-content {
             display: none;
         }
@@ -92,18 +112,21 @@
 <body class="antialiased">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-6">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-2">
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-5">
+        <div class="w-full px-8 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
                 <span class="text-xl font-bold font-heading tracking-[0.2em] text-white">MARTMUT PICTURE</span>
-            </div>
+            </a>
             <div class="hidden md:flex items-center gap-10 text-[11px] font-bold tracking-[0.2em] text-white/80">
-                <a href="#home" class="hover:text-white transition-colors">BERANDA</a>
                 <a href="#about" class="hover:text-white transition-colors">TENTANG</a>
-                <a href="#gallery" class="hover:text-white transition-colors">FOTO</a>
-                <a href="#services" class="hover:text-white transition-colors">HARGA</a>
-                <a href="login.html" class="hover:text-white transition-colors">ADMIN</a>
+                <a href="gallery.html" class="hover:text-white transition-colors">FOTO</a>
+                <a href="#harga" class="hover:text-white transition-colors">HARGA</a>
+                <a href="#kontak" class="hover:text-white transition-colors">KONTAK</a>
             </div>
+            <a href="login.html"
+                class="hidden md:block text-[11px] font-bold tracking-[0.2em] text-white/80 hover:text-white transition-colors">
+                ADMIN
+            </a>
         </div>
     </nav>
 
@@ -111,154 +134,372 @@
     <main id="main-view">
 
         <!-- Hero Section -->
-        <section id="home" class="relative min-h-screen flex items-center justify-center hero-bg overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6 w-full pt-20">
-                <div class="flex flex-col">
-                    <h1 class="massive-text text-white font-heading animate-fade-in">
-                        MARTMUT<br>PICTURE
-                    </h1>
-                    <div class="flex flex-col md:flex-row md:items-end justify-between mt-12 gap-8">
-                        <p class="text-lg text-white/70 max-w-md font-medium leading-relaxed">
-                            Menangkap setiap detail emosi dan warna dalam momen berharga Anda. Profesionalisme yang
-                            dibalut dengan sentuhan artistik.
-                        </p>
-                        <div class="flex gap-4">
-                            <a href="#gallery"
-                                class="px-8 py-4 rounded-full bg-white text-black font-bold hover:bg-amber-400 hover:text-black transition-all">
-                                JELAJAHI KARYA
-                            </a>
+        <section id="home" class="relative min-h-screen flex flex-col justify-between hero-bg overflow-hidden">
+            <!-- Deskripsi di bawah header kiri -->
+            <div class="w-full px-8 pt-24">
+                <p class="text-lg md:text-xl text-white/70 max-w-md font-medium leading-relaxed italic">
+                    Halo, Kami Martmut Picture, yang mengabadikan esensi setiap emosi melalui momen bahagia mu.
+                </p>
+            </div>
+            <!-- Teks besar bawah kiri -->
+            <div class="hero-bottom-editorial">
+                <h1 class="massive-branding">
+                    MARTMUT<br>PICTURE
+                </h1>
+            </div>
+        </section>
+
+        <!-- Tentang Kami -->
+        <section id="about" class="py-32 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-black via-[#0a0a0a] to-black"></div>
+            <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+                <p class="text-2xl md:text-3xl lg:text-4xl font-bold font-heading leading-snug mb-12">
+                    Setiap <em class="text-amber-400 italic">foto</em> haruslah bercerita. Kami menciptakan gambar yang
+                    memadukan seni, perasaan, dan juga narasi, membekukan momen yang benar-benar <em
+                        class="text-amber-400 italic">istimewa</em>.
+                </p>
+                <div class="w-16 h-[2px] bg-amber-400/40 mx-auto mb-8"></div>
+        </section>
+
+
+        <!-- Layanan / Kategori -->
+        <section id="layanan" class="py-24 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-black via-[#0a0a0a] to-black"></div>
+            <div class="max-w-6xl mx-auto px-6 relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-black font-heading mb-4">
+                        Bagaimana <em class="font-serif italic font-normal text-amber-400">saya</em> bisa membantu Anda?
+                    </h2>
+                    <p class="text-gray-500 text-sm md:text-base max-w-2xl mx-auto">
+                        Setiap momen berpesta yang layak untuk diingat. Kami menawarkan fotografer personal yang
+                        mengabadikan emosi dan pengalaman berharga Anda.
+                    </p>
+                </div>
+                <div class="space-y-10">
+                    <!-- Card 1: Birthday Party Kids -->
+                    <div
+                        class="relative rounded-3xl overflow-hidden min-h-[380px] group transition-all duration-400 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-600 group-hover:scale-105"
+                            style="background-image: url('assets/gallery-birthday.png');"></div>
+                        <div class="absolute inset-0"
+                            style="background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);">
+                        </div>
+                        <div class="relative z-10 p-8 md:p-12 flex flex-col justify-end min-h-[380px]">
+                            <div class="max-w-lg">
+                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">
+                                    <em class="font-serif italic font-normal">birthday</em> <span
+                                        class="font-heading font-black">party kids</span>
+                                </h3>
+                                <p class="text-white/70 text-sm leading-relaxed mb-5">Abadikan keceriaan, tawa, dan
+                                    momen ajaib di hari spesial anak Anda. Kami menciptakan kenangan penuh warna yang
+                                    akan Anda kenang selamanya.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="inline-block px-3 py-1 border border-white/30 rounded-full text-[10px] font-bold tracking-wider uppercase text-white bg-white/5 backdrop-blur-sm">Foto
+                                        Candid</span>
+                                    <span
+                                        class="inline-block px-3 py-1 border border-white/30 rounded-full text-[10px] font-bold tracking-wider uppercase text-white bg-white/5 backdrop-blur-sm">Properti
+                                        Tema</span>
+                                    <span
+                                        class="inline-block px-3 py-1 border border-white/30 rounded-full text-[10px] font-bold tracking-wider uppercase text-white bg-white/5 backdrop-blur-sm">Potret
+                                        Keluarga</span>
+                                    <span
+                                        class="inline-block px-3 py-1 border border-white/30 rounded-full text-[10px] font-bold tracking-wider uppercase text-white bg-white/5 backdrop-blur-sm">Dekorasi
+                                        Tingo</span>
+                                </div>
+                                <a href="gallery.html"
+                                    class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-bold rounded-xl hover:bg-amber-400 transition-all">
+                                    Jelajahi Momen <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2: Sweet Seventeen -->
+                    <div
+                        class="relative rounded-3xl overflow-hidden min-h-[380px] group transition-all duration-400 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-600 group-hover:scale-105"
+                            style="background-image: url('assets/gallery-sweet17.png');"></div>
+                        <div class="absolute inset-0"
+                            style="background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);">
+                        </div>
+                        <div
+                            class="relative z-10 p-8 md:p-12 flex flex-col justify-end items-end min-h-[380px] text-right">
+                            <div class="max-w-lg">
+                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">
+                                    <em class="font-serif italic font-normal">sweet</em> <span
+                                        class="font-heading font-black text-amber-400">seventeen</span>
+                                </h3>
+                                <p class="text-white/70 text-sm leading-relaxed mb-5">Rayakan transisi menuju kedewasaan
+                                    dengan sentuhan berkesankan. Kami mengabadikan kecantikan, kepribadian, dan kilau
+                                    dari pesta ulang tahun ke-17 Anda.</p>
+                                <div class="flex flex-wrap gap-2 mb-6 justify-end">
+                                    <span
+                                        class="inline-block px-3 py-1 border border-white/30 rounded-full text-[10px] font-bold tracking-wider uppercase text-white bg-white/5 backdrop-blur-sm">Highlight
+                                        Sinematik</span>
+                                    <span
+                                        class="inline-block px-3 py-1 border border-white/30 rounded-full text-[10px] font-bold tracking-wider uppercase text-white bg-white/5 backdrop-blur-sm">Foto
+                                        Glamour</span>
+                                    <span
+                                        class="inline-block px-3 py-1 border border-white/30 rounded-full text-[10px] font-bold tracking-wider uppercase text-white bg-white/5 backdrop-blur-sm">Liputan
+                                        Pesta</span>
+                                </div>
+                                <a href="gallery.html"
+                                    class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-bold rounded-xl hover:bg-amber-400 transition-all">
+                                    Jelajahi Momen <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3: Graduation & Gathering -->
+                    <div
+                        class="relative rounded-3xl overflow-hidden min-h-[380px] group transition-all duration-400 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-600 group-hover:scale-105"
+                            style="background-image: url('assets/gallery-graduation.png');"></div>
+                        <div class="absolute inset-0"
+                            style="background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);">
+                        </div>
+                        <div class="relative z-10 p-8 md:p-12 flex flex-col justify-end min-h-[380px]">
+                            <div class="max-w-lg">
+                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">
+                                    <span class="font-heading font-black">graduation</span> <em
+                                        class="font-serif italic font-normal text-amber-400">&amp; gathering</em>
+                                </h3>
+                                <p class="text-white/70 text-sm leading-relaxed mb-5">Abadikan pencapaian gemilang dan
+                                    kehangatan kebersamaan Anda. Kami menangkap setiap senyum bangga dan momen akrab
+                                    dalam perayaan yang tak terlupakan.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="inline-block px-3 py-1 border border-white/30 rounded-full text-[10px] font-bold tracking-wider uppercase text-white bg-white/5 backdrop-blur-sm">Liputan
+                                        Wisuda</span>
+                                    <span
+                                        class="inline-block px-3 py-1 border border-white/30 rounded-full text-[10px] font-bold tracking-wider uppercase text-white bg-white/5 backdrop-blur-sm">Gathering
+                                        Komunitas</span>
+                                    <span
+                                        class="inline-block px-3 py-1 border border-white/30 rounded-full text-[10px] font-bold tracking-wider uppercase text-white bg-white/5 backdrop-blur-sm">Farewell
+                                        Party</span>
+                                    <span
+                                        class="inline-block px-3 py-1 border border-white/30 rounded-full text-[10px] font-bold tracking-wider uppercase text-white bg-white/5 backdrop-blur-sm">Cinematic
+                                        Coverage</span>
+                                </div>
+                                <a href="gallery.html"
+                                    class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-bold rounded-xl hover:bg-amber-400 transition-all">
+                                    Jelajahi Momen <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Portfolio Gallery -->
-        <section id="gallery" class="py-24 bg-black">
+        <!-- Harga -->
+        <section id="harga" class="py-24 bg-black">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Galeri Portofolio</h2>
-                    <p class="text-gray-500">Kumpulan karya terbaik kami dalam berbagai genre fotografi.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Wedding -->
-                    <div class="group relative overflow-hidden rounded-2xl aspect-[4/5]">
-                        <img src="assets/portfolio-1.png" alt="Wedding"
-                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                            <span class="text-amber-400 text-sm font-bold uppercase mb-2">Wedding</span>
-                            <h3 class="text-xl font-bold">The Eternal Love</h3>
-                        </div>
-                    </div>
-                    <!-- Product -->
-                    <div class="group relative overflow-hidden rounded-2xl aspect-[4/5]">
-                        <img src="assets/portfolio-2.png" alt="Product"
-                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                            <span class="text-amber-400 text-sm font-bold uppercase mb-2">Commercial</span>
-                            <h3 class="text-xl font-bold">Modern Gadgets</h3>
-                        </div>
-                    </div>
-                    <!-- Portrait -->
-                    <div class="group relative overflow-hidden rounded-2xl aspect-[4/5]">
-                        <img src="assets/portfolio-3.png" alt="Portrait"
-                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                            <span class="text-amber-400 text-sm font-bold uppercase mb-2">Portrait</span>
-                            <h3 class="text-xl font-bold">Expressionist</h3>
-                        </div>
-                    </div>
-                    <!-- Event -->
-                    <div class="group relative overflow-hidden rounded-2xl aspect-[4/5]">
-                        <img src="assets/portfolio-4.png" alt="Event"
-                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                            <span class="text-amber-400 text-sm font-bold uppercase mb-2">Event</span>
-                            <h3 class="text-xl font-bold">Vibrant Night</h3>
-                        </div>
-                    </div>
-                    <!-- Nature -->
-                    <div class="group relative overflow-hidden rounded-2xl aspect-[4/5]">
-                        <img src="assets/portfolio-5.png" alt="Nature"
-                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                            <span class="text-amber-400 text-sm font-bold uppercase mb-2">Landscape</span>
-                            <h3 class="text-xl font-bold">Golden Valley</h3>
-                        </div>
-                    </div>
-                    <!-- Food -->
-                    <div class="group relative overflow-hidden rounded-2xl aspect-[4/5]">
-                        <img src="assets/portfolio-6.png" alt="Food"
-                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                            <span class="text-amber-400 text-sm font-bold uppercase mb-2">Culinary</span>
-                            <h3 class="text-xl font-bold">Gourmet Delight</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services -->
-        <section id="services" class="py-24 glass">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                    <div class="max-w-2xl">
-                        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4 text-amber-400">Layanan Kami</h2>
-                        <p class="text-gray-400">Kami menawarkan berbagai jasa dokumentasi visual yang disesuaikan
-                            dengan kebutuhan Anda.</p>
-                    </div>
+                    <span
+                        class="text-amber-400 text-xs font-black tracking-[0.3em] uppercase mb-4 block">Investasi</span>
+                    <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Paket Harga</h2>
+                    <p class="text-gray-500 max-w-lg mx-auto">Pilih paket yang sesuai dengan kebutuhan dan budget Anda.
+                        Semua paket sudah termasuk editing profesional.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="glass-card p-8 rounded-2xl">
-                        <div class="w-12 h-12 bg-amber-400/10 rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="heart" class="text-amber-400"></i>
+                    <!-- Hanya Foto -->
+                    <div class="glass-card rounded-3xl p-7 flex flex-col">
+                        <div class="text-center mb-6">
+                            <h3 class="text-lg font-bold mb-1">Hanya Foto</h3>
+                            <p class="text-3xl font-black font-heading mt-2">Rp 900<span
+                                    class="text-sm text-gray-500">.000</span></p>
+                            <p class="text-xs text-gray-500 mt-1 italic">Foto Ulang Tahun</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Wedding</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">Abadikan momen sekali seumur hidup dengan gaya
-                            sinematik dan emosional.</p>
+                        <ul class="space-y-3 mb-8 flex-1">
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                1 Fotografer Profesional
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                Semua File Hasil Edit
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                Proses Edit 3 Hari
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                Pengiriman via GDrive/GPhoto
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/6281282914639?text=Halo%20Martmut%20Picture%2C%20saya%20tertarik%20dengan%20paket%20Hanya%20Foto.%20Bisa%20info%20lebih%20lanjut%3F"
+                            target="_blank"
+                            class="w-full py-3 rounded-xl border border-white/10 text-center font-bold text-sm hover:bg-white/5 transition-all">Pesan
+                            Sekarang</a>
                     </div>
-                    <div class="glass-card p-8 rounded-2xl">
-                        <div class="w-12 h-12 bg-amber-400/10 rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="shopping-bag" class="text-amber-400"></i>
+                    <!-- Hanya Video -->
+                    <div class="glass-card rounded-3xl p-7 flex flex-col">
+                        <div class="text-center mb-6">
+                            <h3 class="text-lg font-bold mb-1">Hanya Video</h3>
+                            <p class="text-3xl font-black font-heading mt-2">Rp 1.500<span
+                                    class="text-sm text-gray-500">.000</span></p>
+                            <p class="text-xs text-gray-500 mt-1 italic">Video Ulang Tahun</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Product</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">Tingkatkan nilai jual produk Anda dengan foto
-                            komersial berkualitas tinggi.</p>
+                        <ul class="space-y-3 mb-8 flex-1">
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                1 Videografer Profesional
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                Dokumentasi Penuh (5-15 mnt)
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                Highlight (1-3 mnt)
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                Proses Edit 2 Minggu
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/6281282914639?text=Halo%20Martmut%20Picture%2C%20saya%20tertarik%20dengan%20paket%20Hanya%20Video.%20Bisa%20info%20lebih%20lanjut%3F"
+                            target="_blank"
+                            class="w-full py-3 rounded-xl border border-white/10 text-center font-bold text-sm hover:bg-white/5 transition-all">Pesan
+                            Sekarang</a>
                     </div>
-                    <div class="glass-card p-8 rounded-2xl">
-                        <div class="w-12 h-12 bg-amber-400/10 rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="video" class="text-amber-400"></i>
+                    <!-- Foto & Video (Terpopuler) -->
+                    <div class="relative glass-card rounded-3xl p-7 flex flex-col border-2 !border-amber-400/40">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                            <span
+                                class="gradient-gold text-black text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest">Terpopuler</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Cinematography</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">Produksi video pendek, iklan, hingga
-                            dokumentasi event profesional.</p>
+                        <div class="text-center mb-6">
+                            <h3 class="text-lg font-bold mb-1 text-amber-400">Foto &amp; Video</h3>
+                            <p class="text-3xl font-black font-heading mt-2">Rp 2.300<span
+                                    class="text-sm text-gray-500">.000</span></p>
+                            <p class="text-xs text-gray-500 mt-1 italic">Tim Lengkap (FG &amp; VG)</p>
+                        </div>
+                        <ul class="space-y-3 mb-8 flex-1">
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                1 Fotografer &amp; 1 Videografer
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                Semua File Foto Hasil Edit
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                Video Penuh &amp; Highlight
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                <strong class="text-amber-400">GRATIS</strong>&nbsp; Transport (JKT-TGR)
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/6281282914639?text=Halo%20Martmut%20Picture%2C%20saya%20tertarik%20dengan%20paket%20Foto%20%26%20Video%20(Terpopuler).%20Bisa%20info%20lebih%20lanjut%3F"
+                            target="_blank"
+                            class="w-full py-3 rounded-xl gradient-gold text-black text-center font-bold text-sm hover:shadow-lg hover:shadow-amber-400/20 transition-all">Pesan
+                            Terpopuler</a>
                     </div>
-                    <div class="glass-card p-8 rounded-2xl">
-                        <div class="w-12 h-12 bg-amber-400/10 rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="users" class="text-amber-400"></i>
+                    <!-- Paket Hybrid -->
+                    <div class="glass-card rounded-3xl p-7 flex flex-col">
+                        <div class="text-center mb-6">
+                            <h3 class="text-lg font-bold mb-1">Paket Hybrid</h3>
+                            <p class="text-3xl font-black font-heading mt-2">Rp 1.500<span
+                                    class="text-sm text-gray-500">.000</span></p>
+                            <p class="text-xs text-gray-500 mt-1 italic">Foto &amp; Video Highlight</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Corporate</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">Profil perusahaan, foto tim, dan dokumentasi
-                            kegiatan bisnis.</p>
+                        <ul class="space-y-3 mb-8 flex-1">
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                1 Fotografer Hybrid
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                Semua File Foto Hasil Edit
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                Video Highlight (1-3 mnt)
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                Pilihan Hemat Anggaran
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/6281282914639?text=Halo%20Martmut%20Picture%2C%20saya%20tertarik%20dengan%20Paket%20Hybrid.%20Bisa%20info%20lebih%20lanjut%3F"
+                            target="_blank"
+                            class="w-full py-3 rounded-xl border border-white/10 text-center font-bold text-sm hover:bg-white/5 transition-all">Pesan
+                            Sekarang</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-white/5 mt-20">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-gray-500 text-sm">&copy; 2026 Martmut Picture & SPK Strategy. All rights reserved.</p>
+    <!-- Footer / Kontak -->
+    <footer id="kontak" class="pt-16 pb-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                <!-- Kiri: Brand -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-2xl"></span>
+                        <h3 class="text-xl font-bold font-heading">Martmut Picture</h3>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-sm mb-6">
+                        Spesialis dokumentasi event, photobooth, dan video sinematik dengan sentuhan seni dan
+                        profesionalitas tinggi.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a href="https://www.instagram.com/_u/martmutpicture/" target="_blank"
+                            class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5 text-gray-400"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@martmutpictures/" target="_blank"
+                            class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52V6.79a4.84 4.84 0 01-1-.1z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Kanan: Hubungi Kami -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Hubungi Kami</h3>
+                    <div class="space-y-4">
+                        <a href="tel:+6281282914639"
+                            class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="phone" class="w-4 h-4 text-amber-400"></i>
+                            <span class="text-sm">+62 812-8291-4639</span>
+                        </a>
+                        <a href="mailto:martmutphotobooth@gmail.com"
+                            class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="mail" class="w-4 h-4 text-amber-400"></i>
+                            <span class="text-sm">martmutphotobooth@gmail.com</span>
+                        </a>
+                        <div class="flex items-center gap-3 text-gray-400">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i>
+                            <span class="text-sm">Martmut Picture, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="border-t border-white/5 pt-6 text-center">
+                <p class="text-gray-600 text-xs">&copy; 2026 Martmut Picture. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/6281282914639" target="_blank"
+        class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 hover:bg-green-400 hover:scale-110 transition-all">
+        <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
 
     <!-- Scripts -->
     <script>

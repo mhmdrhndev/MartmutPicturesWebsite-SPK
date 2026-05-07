@@ -180,6 +180,9 @@
         lucide.createIcons();
         const engine = new SPKWeightedProduct();
 
+        // Muat data tersimpan dari localStorage
+        engine.muatDariStorage();
+
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 20) {
@@ -196,9 +199,10 @@
         const calcContainer = document.getElementById('calc-container');
         const resultView = document.getElementById('result-view');
 
-        // Logout logic
+        // Logout logic — hapus juga data SPK dari storage
         document.getElementById('btn-logout').addEventListener('click', () => {
             localStorage.removeItem('adminLoggedIn');
+            engine.hapusStorage();
             window.location.href = 'login.html';
         });
 
@@ -288,6 +292,9 @@
             lucide.createIcons();
             resultView.scrollIntoView({ behavior: 'smooth' });
         });
+
+        // Render tabel saat halaman pertama kali dimuat
+        updateTable();
     </script>
 </body>
 </html>
