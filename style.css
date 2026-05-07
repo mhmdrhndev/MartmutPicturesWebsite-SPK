@@ -1,0 +1,108 @@
+/* =============================================
+   Martmut Picture | Main Stylesheet
+   ============================================= */
+
+/* --- Google Fonts (import via HTML <link> tag) ---
+   Plus Jakarta Sans: 300, 400, 500, 600, 700
+   Outfit: 300, 400, 600, 700
+*/
+
+/* Base */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0a0a0a;
+    color: #f5f5f5;
+}
+
+.font-heading {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Glass Effects */
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+}
+
+/* Gradients */
+.gradient-text {
+    background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-gold {
+    background: linear-gradient(135deg, #fde68a 0%, #fbbf24 100%);
+}
+
+/* Hero Section */
+.hero-bg {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/hero-cinematic.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Typography */
+.massive-text {
+    font-size: clamp(4rem, 15vw, 12rem);
+    line-height: 0.85;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.hero-bottom-editorial {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 2rem 2rem;
+    pointer-events: none;
+}
+
+.massive-branding {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(4rem, 14vw, 11rem);
+    line-height: 0.85;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: white;
+    margin: 0 0 -10px -10px;
+    text-transform: uppercase;
+}
+
+/* Tabs */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Form Inputs */
+input,
+select {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+}
+
+input:focus {
+    border-color: #fbbf24 !important;
+    outline: none;
+}
