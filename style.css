@@ -52,7 +52,7 @@ body {
 
 /* Hero Section */
 .hero-bg {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/hero-cinematic.png');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/hero-cinematic.png?v=2');
     background-size: cover;
     background-position: center;
 }
