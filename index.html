@@ -21,22 +21,43 @@
 
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-5">
-        <div class="w-full px-8 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2">
-                <span class="text-xl font-bold font-heading tracking-[0.2em] text-white">MARTMUT PICTURE</span>
+        <div class="w-full px-6 md:px-8 flex items-center relative">
+            <!-- Brand (left) -->
+            <a href="index.html" class="flex items-center gap-2 flex-shrink-0 z-10">
+                <span class="text-lg md:text-xl font-bold font-heading tracking-[0.2em] text-white">MARTMUT PICTURE</span>
             </a>
-            <div class="hidden md:flex items-center gap-10 text-[11px] font-bold tracking-[0.2em] text-white/80">
-                <a href="#about" class="hover:text-white transition-colors">TENTANG</a>
-                <a href="gallery.html" class="hover:text-white transition-colors">FOTO</a>
-                <a href="#harga" class="hover:text-white transition-colors">HARGA</a>
-                <a href="#kontak" class="hover:text-white transition-colors">KONTAK</a>
+            <!-- Nav Links (absolute center) -->
+            <div class="hidden md:flex items-center gap-10 text-[11px] font-bold tracking-[0.2em] text-white/80 absolute left-1/2 -translate-x-1/2">
+                <a href="#about" class="hover:text-white transition-colors relative nav-link">TENTANG</a>
+                <a href="gallery.html" class="hover:text-white transition-colors relative nav-link">FOTO</a>
+                <a href="#harga" class="hover:text-white transition-colors relative nav-link">HARGA</a>
+                <a href="#kontak" class="hover:text-white transition-colors relative nav-link">KONTAK</a>
             </div>
+            <!-- Admin (right) -->
             <a href="login.html"
-                class="hidden md:block text-[11px] font-bold tracking-[0.2em] text-white/80 hover:text-white transition-colors">
+                class="hidden md:block text-[11px] font-bold tracking-[0.2em] text-white/80 hover:text-white transition-colors ml-auto z-10">
                 ADMIN
             </a>
+            <!-- Mobile Hamburger -->
+            <button id="menu-toggle" class="md:hidden ml-auto z-10 w-10 h-10 flex flex-col items-center justify-center gap-[5px] group" aria-label="Menu">
+                <span class="hamburger-line block w-6 h-[2px] bg-white transition-all duration-300"></span>
+                <span class="hamburger-line block w-6 h-[2px] bg-white transition-all duration-300"></span>
+                <span class="hamburger-line block w-4 h-[2px] bg-white transition-all duration-300 self-end mr-[2px]"></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col items-center justify-center bg-[#0a0a0a]/98 backdrop-blur-xl transition-all duration-500 opacity-0 pointer-events-none">
+        <div class="flex flex-col items-center gap-8">
+            <a href="#about" class="mobile-nav-link text-2xl font-bold font-heading tracking-[0.15em] text-white/80 hover:text-amber-400 transition-all duration-300">TENTANG</a>
+            <a href="gallery.html" class="mobile-nav-link text-2xl font-bold font-heading tracking-[0.15em] text-white/80 hover:text-amber-400 transition-all duration-300">FOTO</a>
+            <a href="#harga" class="mobile-nav-link text-2xl font-bold font-heading tracking-[0.15em] text-white/80 hover:text-amber-400 transition-all duration-300">HARGA</a>
+            <a href="#kontak" class="mobile-nav-link text-2xl font-bold font-heading tracking-[0.15em] text-white/80 hover:text-amber-400 transition-all duration-300">KONTAK</a>
+            <div class="w-12 h-[1px] bg-amber-400/30 my-2"></div>
+            <a href="login.html" class="mobile-nav-link text-sm font-bold tracking-[0.2em] text-white/50 hover:text-white transition-all duration-300">ADMIN</a>
+        </div>
+    </div>
 
     <!-- MAIN CONTENT -->
     <main id="main-view">
@@ -345,27 +366,28 @@
     </main>
 
     <!-- Footer / Kontak -->
-    <footer id="kontak" class="pt-16 pb-8 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+    <footer id="kontak" class="pt-20 pb-8 border-t border-white/5 bg-[#060606]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-12 mb-16">
                 <!-- Kiri: Brand -->
-                <div>
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="text-2xl"></span>
-                        <h3 class="text-xl font-bold font-heading">Martmut Picture</h3>
-                    </div>
-                    <p class="text-gray-500 text-sm leading-relaxed max-w-sm mb-6">
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-bold font-heading tracking-wide mb-4">Martmut Picture</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-sm mx-auto md:mx-0 mb-6">
                         Spesialis dokumentasi event, photobooth, dan video sinematik dengan sentuhan seni dan
                         profesionalitas tinggi.
                     </p>
-                    <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-3 justify-center md:justify-start">
                         <a href="https://www.instagram.com/_u/martmutpicture/" target="_blank"
-                            class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-white/10 transition-colors">
-                            <i data-lucide="instagram" class="w-5 h-5 text-gray-400"></i>
+                            class="w-11 h-11 bg-white/5 rounded-xl flex items-center justify-center hover:bg-white/10 hover:border-amber-400/30 border border-white/5 transition-all duration-300 group">
+                            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
                         </a>
                         <a href="https://www.tiktok.com/@martmutpictures/" target="_blank"
-                            class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-white/10 transition-colors">
-                            <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                            class="w-11 h-11 bg-white/5 rounded-xl flex items-center justify-center hover:bg-white/10 hover:border-amber-400/30 border border-white/5 transition-all duration-300 group">
+                            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="currentColor">
                                 <path
                                     d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52V6.79a4.84 4.84 0 01-1-.1z" />
                             </svg>
@@ -373,22 +395,24 @@
                     </div>
                 </div>
                 <!-- Kanan: Hubungi Kami -->
-                <div>
-                    <h3 class="text-lg font-bold mb-6">Hubungi Kami</h3>
-                    <div class="space-y-4">
-                        <a href="tel:+6281282914639"
-                            class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
-                            <i data-lucide="phone" class="w-4 h-4 text-amber-400"></i>
-                            <span class="text-sm">+62 812-8291-4639</span>
-                        </a>
-                        <a href="mailto:martmutphotobooth@gmail.com"
-                            class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
-                            <i data-lucide="mail" class="w-4 h-4 text-amber-400"></i>
-                            <span class="text-sm">martmutphotobooth@gmail.com</span>
-                        </a>
-                        <div class="flex items-center gap-3 text-gray-400">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i>
-                            <span class="text-sm">Martmut Picture, Indonesia</span>
+                <div class="text-center md:text-left md:flex md:flex-col md:items-end">
+                    <div class="md:text-right">
+                        <h3 class="text-2xl font-bold font-heading tracking-wide mb-6">Hubungi Kami</h3>
+                        <div class="space-y-4">
+                            <a href="tel:+6281282914639"
+                                class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors justify-center md:justify-end">
+                                <i data-lucide="phone" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                <span class="text-sm">+62 812-8291-4639</span>
+                            </a>
+                            <a href="mailto:martmutphotobooth@gmail.com"
+                                class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors justify-center md:justify-end">
+                                <i data-lucide="mail" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                <span class="text-sm">martmutphotobooth@gmail.com</span>
+                            </a>
+                            <div class="flex items-center gap-3 text-gray-400 justify-center md:justify-end">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                                <span class="text-sm">Martmut Picture, Indonesia</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -424,6 +448,49 @@
                 navbar.classList.remove('bg-[#0a0a0a]', 'py-4', 'shadow-2xl', 'border-b', 'border-white/5');
                 navbar.classList.add('py-6');
             }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerLines = menuToggle.querySelectorAll('.hamburger-line');
+        let menuOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = 'hidden';
+                // Animate hamburger to X
+                hamburgerLines[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+                hamburgerLines[1].style.opacity = '0';
+                hamburgerLines[2].style.transform = 'rotate(-45deg) translate(3px, -3px)';
+                hamburgerLines[2].style.width = '24px';
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = '';
+                // Reset hamburger
+                hamburgerLines[0].style.transform = '';
+                hamburgerLines[1].style.opacity = '1';
+                hamburgerLines[2].style.transform = '';
+                hamburgerLines[2].style.width = '16px';
+            }
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuOpen = false;
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = '';
+                hamburgerLines[0].style.transform = '';
+                hamburgerLines[1].style.opacity = '1';
+                hamburgerLines[2].style.transform = '';
+                hamburgerLines[2].style.width = '16px';
+            });
         });
     </script>
 </body>

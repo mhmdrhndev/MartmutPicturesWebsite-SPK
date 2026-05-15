@@ -106,3 +106,76 @@ input:focus {
     border-color: #fbbf24 !important;
     outline: none;
 }
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Nav link hover underline */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #fbbf24;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile nav link animation */
+.mobile-nav-link {
+    transform: translateY(10px);
+    transition: transform 0.4s ease, opacity 0.4s ease, color 0.3s ease;
+}
+
+#mobile-menu.opacity-100 .mobile-nav-link {
+    transform: translateY(0);
+}
+
+/* =============================================
+   Responsive Styles
+   ============================================= */
+
+/* Small screens (phones) */
+@media (max-width: 640px) {
+    .massive-branding {
+        font-size: clamp(2.5rem, 12vw, 5rem);
+        margin: 0 0 -5px -5px;
+    }
+
+    .hero-bottom-editorial {
+        padding: 0 1rem 1.5rem;
+    }
+
+    /* Reduce section padding on mobile */
+    section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
+    .massive-branding {
+        font-size: clamp(3rem, 13vw, 7rem);
+        margin: 0 0 -8px -5px;
+    }
+}
+
+/* Touch-friendly tap targets */
+@media (hover: none) {
+    .glass-card:hover {
+        transform: none;
+    }
+
+    .glass-card:active {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}
