@@ -192,7 +192,8 @@ textarea:focus {
 /* Black primary buttons */
 .gradient-black {
     background: var(--bg-color) !important;
-    color: #000000 !important; /* Black */
+    color: #000000 !important;
+    /* Black */
     box-shadow: 6px 6px 12px var(--shadow-dark),
         -6px -6px 12px var(--shadow-light) !important;
     border: 1px solid rgba(0, 0, 0, 0.2) !important;
@@ -213,7 +214,8 @@ textarea:focus {
     box-shadow: inset 4px 4px 8px var(--shadow-dark),
         inset -4px -4px 8px var(--shadow-light) !important;
     background: var(--bg-color) !important;
-    color: #000000 !important; /* Black */
+    color: #000000 !important;
+    /* Black */
 }
 
 /* Plain secondary buttons */
@@ -255,7 +257,7 @@ nav {
     border: 1px solid rgba(255, 255, 255, 0.4) !important;
     border-radius: 9999px !important;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.6) !important;
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.6) !important;
     padding: 0.75rem 1.5rem !important;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
     z-index: 50 !important;
