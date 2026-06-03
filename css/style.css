@@ -1,0 +1,517 @@
+/* =========================================================
+   WHITE NEUMORPHISM DESIGN SYSTEM
+   =========================================================
+   Cohesive light neumorphic styles replacing standard styles
+   across Martmut Picture project files.
+   ========================================================= */
+
+:root {
+    --bg-color: #f0f3f6;
+    /* Base off-white canvas */
+    --shadow-dark: #d1d9e6;
+    /* Soft slate shadow for depth */
+    --shadow-light: #ffffff;
+    /* Clean white reflection shadow */
+    --accent-color: #000000;
+    /* Pure black accent */
+    --accent-dark: #000000;
+    --text-color: #000000;
+    /* Pure black for readable text */
+    --text-muted: #000000;
+    /* Pure black for secondary text */
+}
+
+/* Base resets & styles */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-color) !important;
+    color: var(--text-color);
+    transition: background-color 0.3s ease;
+}
+
+/* Neumorphic Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-color);
+    box-shadow: 2px 2px 5px var(--shadow-dark), -2px -2px 5px var(--shadow-light);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    box-shadow: inset 1px 1px 3px var(--shadow-dark), inset -1px -1px 3px var(--shadow-light);
+}
+
+/* Section background overrides to blend with Neumorphism */
+.bg-black,
+.bg-\[\#0a0a0a\],
+.bg-\[\#060606\],
+.bg-\[\#0a0a0a\]\/98,
+#kontak.bg-\[\#060606\] {
+    background-color: var(--bg-color) !important;
+}
+
+#about>div.absolute.inset-0,
+#layanan>div.absolute.inset-0 {
+    background: transparent !important;
+}
+
+.font-heading {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* =============================================
+   Light Neumorphism Components
+   ============================================= */
+
+/* Cards (Outset panels) */
+.glass,
+.glass-card {
+    background-color: var(--bg-color) !important;
+    border-radius: 1.5rem !important;
+    box-shadow: 8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: none !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.glass-card:hover,
+.glass:hover {
+    box-shadow: 12px 12px 24px var(--shadow-dark),
+        -12px -12px 24px var(--shadow-light) !important;
+    transform: translateY(-4px) !important;
+    border-color: rgba(217, 119, 6, 0.2) !important;
+}
+
+/* Featured pricing card styling */
+.glass-card.border-black\/40 {
+    box-shadow: 8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light),
+        inset 0 0 12px rgba(0, 0, 0, 0.05) !important;
+    border: 2px solid #000000 !important;
+}
+
+/* Floating badge/tag backgrounds */
+.bg-white\/5 {
+    background-color: var(--bg-color) !important;
+    box-shadow: 3px 3px 6px var(--shadow-dark),
+        -3px -3px 6px var(--shadow-light) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Restore original glass look for tags/badges inside dark overlay cards */
+#layanan .rounded-3xl .bg-white\/5 {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(4px);
+}
+
+/* Inset highlights on lists and results */
+.bg-white\/5.rounded-lg,
+.bg-white\/5.rounded-xl {
+    background-color: var(--bg-color) !important;
+    box-shadow: inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Active element styling (e.g. winner row or recommended card) */
+.bg-amber-400\/20 {
+    background-color: rgba(217, 119, 6, 0.08) !important;
+    box-shadow: inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light),
+        0 0 8px rgba(217, 119, 6, 0.1) !important;
+    border: 1px solid rgba(217, 119, 6, 0.2) !important;
+}
+
+/* =============================================
+   Form Inputs & Controls (Inset neumorphic)
+   ============================================= */
+input,
+select,
+textarea {
+    background: var(--bg-color) !important;
+    border: none !important;
+    box-shadow: inset 4px 4px 8px var(--shadow-dark),
+        inset -4px -4px 8px var(--shadow-light) !important;
+    color: var(--text-color) !important;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    box-shadow: inset 4px 4px 8px var(--shadow-dark),
+        inset -4px -4px 8px var(--shadow-light),
+        0 0 0 1px var(--accent-color) !important;
+    outline: none !important;
+}
+
+/* Buttons */
+
+/* Gold primary buttons */
+.gradient-gold {
+    background: var(--bg-color) !important;
+    color: var(--accent-color) !important;
+    box-shadow: 6px 6px 12px var(--shadow-dark),
+        -6px -6px 12px var(--shadow-light) !important;
+    border: 1px solid rgba(217, 119, 6, 0.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+.gradient-gold:hover {
+    color: #000 !important;
+    background: linear-gradient(135deg, #fde68a 0%, #fbbf24 100%) !important;
+    box-shadow: 8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light),
+        0 0 10px rgba(217, 119, 6, 0.2) !important;
+    transform: translateY(-2px);
+}
+
+.gradient-gold:active {
+    transform: translateY(0);
+    box-shadow: inset 4px 4px 8px var(--shadow-dark),
+        inset -4px -4px 8px var(--shadow-light) !important;
+    background: var(--bg-color) !important;
+    color: var(--accent-color) !important;
+}
+
+/* Black primary buttons */
+.gradient-black {
+    background: var(--bg-color) !important;
+    color: #000000 !important; /* Black */
+    box-shadow: 6px 6px 12px var(--shadow-dark),
+        -6px -6px 12px var(--shadow-light) !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+.gradient-black:hover {
+    color: #ffffff !important;
+    background: #000000 !important;
+    box-shadow: 8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light),
+        0 0 10px rgba(0, 0, 0, 0.3) !important;
+    transform: translateY(-2px);
+}
+
+.gradient-black:active {
+    transform: translateY(0);
+    box-shadow: inset 4px 4px 8px var(--shadow-dark),
+        inset -4px -4px 8px var(--shadow-light) !important;
+    background: var(--bg-color) !important;
+    color: #000000 !important; /* Black */
+}
+
+/* Plain secondary buttons */
+button.bg-white {
+    background: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    box-shadow: 6px 6px 12px var(--shadow-dark),
+        -6px -6px 12px var(--shadow-light) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    transition: all 0.3s ease !important;
+}
+
+button.bg-white:hover {
+    color: var(--accent-color) !important;
+    box-shadow: 8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light) !important;
+    transform: translateY(-2px);
+}
+
+button.bg-white:active {
+    transform: translateY(0);
+    box-shadow: inset 4px 4px 8px var(--shadow-dark),
+        inset -4px -4px 8px var(--shadow-light) !important;
+}
+
+/* =============================================
+   Navbar & Navigation
+   ============================================= */
+nav {
+    position: fixed !important;
+    top: 1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 90% !important;
+    max-width: 1200px !important;
+    background-color: rgba(255, 255, 255, 0.35) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.6) !important;
+    padding: 0.75rem 1.5rem !important;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    z-index: 50 !important;
+}
+
+/* Custom scroll-hide navbar behavior for homepage */
+nav.homepage-nav {
+    opacity: 0;
+    pointer-events: none;
+    top: 0 !important;
+    transform: translateX(-50%) translateY(-30px) !important;
+}
+
+nav.homepage-nav.scrolled {
+    opacity: 1;
+    pointer-events: auto;
+    top: 1rem !important;
+    transform: translateX(-50%) translateY(0) !important;
+}
+
+/* Navbar text and elements black color for readability on light background */
+nav a:not(.text-red-400):not(.text-amber-400),
+nav span:not(.text-red-400):not(.text-amber-400),
+.nav-link:not(.text-red-400):not(.text-amber-400),
+#mobile-menu a:not(.text-red-400):not(.text-amber-400) {
+    color: #000000 !important;
+}
+
+nav a:hover,
+nav .nav-link:hover,
+nav .mobile-nav-link:hover,
+#mobile-menu a:hover,
+#mobile-menu .mobile-nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+nav .hamburger-line {
+    background-color: #000000 !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.mobile-nav-link {
+    transform: translateY(10px);
+    transition: transform 0.4s ease, opacity 0.4s ease, color 0.3s ease;
+}
+
+#mobile-menu.opacity-100 .mobile-nav-link {
+    transform: translateY(0);
+}
+
+/* =============================================
+   Light Mode Contrast & Text Readability Overrides
+   ============================================= */
+
+/* Override Tailwind white/light text classes so they display dark on off-white */
+.text-white,
+.text-amber-100,
+.massive-branding {
+    color: var(--text-color) !important;
+}
+
+.text-white\/50,
+.text-white\/70,
+.text-white\/80,
+.text-gray-300,
+.text-gray-400,
+.text-gray-500 {
+    color: var(--text-muted) !important;
+}
+
+/* Nav links hover color */
+.nav-link:hover,
+.mobile-nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Keep text on dark image overlay elements white for visibility */
+#home .text-white\/70,
+#home .massive-branding,
+#layanan .text-white,
+#layanan .text-white\/70,
+#layanan span.text-white {
+    color: #ffffff !important;
+}
+
+/* Keep WhatsApp floating button icon white */
+.fixed.bottom-6.right-6 svg,
+.fixed.bottom-6.right-6 .text-white {
+    color: #ffffff !important;
+}
+
+/* Remove hover underline and amber color from ADMIN (login administrator) links */
+nav a[href="login.html"]:hover,
+#mobile-menu a[href="login.html"]:hover {
+    color: #000000 !important;
+    text-decoration: none !important;
+}
+
+/* Ensure Muat Contoh Data button is black */
+#btn-demo {
+    color: #000000 !important;
+}
+
+/* =============================================
+   Hero Section & Landing Styling
+   ============================================ */
+.hero-bg {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('../assets/hero-cinematic.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.massive-text {
+    font-size: clamp(4rem, 15vw, 12rem);
+    line-height: 0.85;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.hero-bottom-editorial {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 2rem 2rem;
+    pointer-events: none;
+}
+
+.massive-branding {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(4rem, 14vw, 11rem);
+    line-height: 0.85;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: white;
+    margin: 0 0 -10px -10px;
+    text-transform: uppercase;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* =============================================
+   Gallery Page Styling
+   ============================================= */
+.protected-img {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+}
+
+/* Lightbox overlay */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(240, 243, 246, 0.96);
+    backdrop-filter: blur(12px);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 0.75rem;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* =============================================
+   Responsive & Accessibility Styles
+   ============================================= */
+@media (max-width: 640px) {
+    .massive-branding {
+        font-size: clamp(2.5rem, 12vw, 5rem);
+        margin: 0 0 -5px -5px;
+    }
+
+    .hero-bottom-editorial {
+        padding: 0 1rem 1.5rem;
+    }
+
+    section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .massive-branding {
+        font-size: clamp(3rem, 13vw, 7rem);
+        margin: 0 0 -8px -5px;
+    }
+}
+
+@media (hover: none) {
+
+    .glass-card:hover,
+    .glass:hover {
+        transform: none !important;
+    }
+
+    .glass-card:active {
+        background-color: var(--bg-color);
+        box-shadow: inset 4px 4px 8px var(--shadow-dark),
+            inset -4px -4px 8px var(--shadow-light) !important;
+    }
+}
